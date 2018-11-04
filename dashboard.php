@@ -8,6 +8,7 @@
         <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="assets/styles.css" rel="stylesheet" media="screen">
+		<link href="assets/DT_bootstrap.css" rel="stylesheet" media="screen">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,7 +44,7 @@
                         </ul>
                         <ul class="nav">
                             <li class="active">
-                                <a href="#">Dashboard</a>
+                                <a href="#">Admin</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
@@ -128,10 +129,10 @@
         </div>
         <div class="">
             <div class="row-fluid">
-                <div class="" id="sidebar" style="margin-top : -50px;background-color:#e6e6e6">
+                <div class="span3" id="sidebar" style="margin-top : -50px;">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse" style="background-color:#f6f6f6">
                         <li class="active">
-                            <a href="index.html"><i class="icon-chevron-right"></i> Dashboard</a>
+                            <a onclick="menu_change('admin.php');"><i class="icon-chevron-right"></i> Admin</a>
                         </li>
                         <li>
                             <a href="calendar.html"><i class="icon-chevron-right"></i> Calendar</a>
@@ -182,7 +183,9 @@
                 </div>
                 
                 <!--/span-->
-                <div class="span9" id="content"></div>
+                <div class="span9" id="content">
+				<?php include('home.php'); ?>
+				</div>
             </div>
             <hr>
             <footer>
@@ -194,12 +197,22 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="assets/scripts.js"></script>
-        <script>
-        $(function() {
-            // Easy pie charts
-            $('.chart').easyPieChart({animate: 1000});
+		<script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="assets/DT_bootstrap.js"></script>
+        <script type="text/javascript">
+    function menu_change(_url){
+		$.ajax({
+            url : _url,
+            type : 'get',
+            success: function(data) {
+             $('#content').html(data);
+            },
+            error: function() {
+             $('#content').text('An error occurred');
+            }
         });
-        </script>
+    }
+</script>
     </body>
 
 </html>
