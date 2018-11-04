@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     
     <head>
-        <title>Dashboard</title>
+        <title>Tables</title>
         <!-- Bootstrap -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="assets/styles.css" rel="stylesheet" media="screen">
+        <link href="assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+        <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="vendors/flot/excanvas.min.js"></script><![endif]-->
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     
@@ -126,11 +130,11 @@
                 </div>
             </div>
         </div>
-        <div class="">
+        <div class="container-fluid">
             <div class="row-fluid">
-                <div class="" id="sidebar" style="margin-top : -50px;background-color:#e6e6e6">
-                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse" style="background-color:#f6f6f6">
-                        <li class="active">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li>
                             <a href="index.html"><i class="icon-chevron-right"></i> Dashboard</a>
                         </li>
                         <li>
@@ -142,14 +146,11 @@
                         <li>
                             <a href="form.html"><i class="icon-chevron-right"></i> Forms</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
                         </li>
                         <li>
                             <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
-                        </li>
-                        <li>
-                            <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
                         </li>
                         <li>
                             <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
@@ -180,24 +181,89 @@
                         </li>
                     </ul>
                 </div>
-                
                 <!--/span-->
-                <div class="span9" id="content"></div>
+                <div class="span9" id="content">
+				
+                     <div class="row-fluid">
+					 <div class="btn-group">
+												<button type="button" class="btn">Notification<span class="label label-danger">7</span></button>
+												<button type="button" class="btn">User Number<span class="label label-warning">7</span></button>
+												<button type="button" class="btn">Active User<span class="label label-info">7</span></button>
+												</div> 
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">Bootstrap dataTables</div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+                                    
+  									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+										<thead>
+											<tr>
+												<th>Rendering engine</th>
+												<th>Browser</th>
+												<th>Platform(s)</th>
+												<th>Engine version</th>
+												<th>CSS grade</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="odd gradeX">
+												<td>Trident</td>
+												<td>Internet Explorer 4.0</td>
+												<td>Win 95+</td>
+												<td class="center"> 4</td>
+												<td class="center">X</td>
+												<td class="center"> 
+												<div class="btn-group">
+												<button type="button" class="btn label-success"><span class="glyphicon glyphicon-plus"></span></button>
+												<button type="button" class="btn label-info"><span class="glyphicon glyphicon-record"></span></button>
+												<button type="button" class="btn label-warning"><span class="glyphicon glyphicon-eye-open"></span></button>
+												<button type="button" class="btn label-danger"><span class="glyphicon glyphicon-trash"></span></button>
+												</div> 
+												</td>
+											</tr>
+											<tr class="even gradeC">
+												<td>Trident</td>
+												<td>Internet
+													 Explorer 5.0</td>
+												<td>Win 95+</td>
+												<td class="center">5</td>
+												<td class="center">C</td>
+												<td class="center"> 
+												<div class="btn-group">
+												<button type="button" class="btn label-success"><span class="glyphicon glyphicon-plus"></span></button>
+												<button type="button" class="btn label-info"><span class="glyphicon glyphicon-record"></span></button>
+												<button type="button" class="btn label-warning"><span class="glyphicon glyphicon-eye-open"></span></button>
+												<button type="button" class="btn label-danger"><span class="glyphicon glyphicon-trash"></span></button>
+												</div> 
+												</td>
+											</tr>
+										</tbody>
+									</table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+
+                </div>
             </div>
-            <hr>
-            <footer>
-                <p>&copy; Vincent Gabriel 2013</p>
-            </footer>
         </div>
         <!--/.fluid-container-->
-        <script src="vendors/jquery-1.9.1.min.js"></script>
+
+        <script src="vendors/jquery-1.9.1.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+
+
         <script src="assets/scripts.js"></script>
+        <script src="assets/DT_bootstrap.js"></script>
         <script>
         $(function() {
-            // Easy pie charts
-            $('.chart').easyPieChart({animate: 1000});
+            
         });
         </script>
     </body>
